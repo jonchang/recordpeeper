@@ -28,23 +28,23 @@ def handle_get_battle_init_data(data):
     battle_name = BATTLES.get(battle_id, "battle #" + battle_id)
     print "Entering {0}".format(battle_name)
     all_rounds_data = battle_data['rounds']
-    tbl = [["rnd", "enemy", "drop"]]
+    tbl = [["Rnd", "Enemy", "Drop"]]
     for round_data in all_rounds_data:
         round = round_data.get("round", "???")
         for round_drop in round_data["drop_item_list"]:
             item_type = int(round_drop.get("type", 0))
             if item_type == 21:
-                itemname = "potion"
+                itemname = "Potion"
             elif item_type == 22:
-                itemname = "hi-potion"
+                itemname = "Hi-Potion"
             elif item_type == 23:
-                itemname = "x-potion"
+                itemname = "X-Potion"
             elif item_type == 31:
-                itemname = "ether"
+                itemname = "Ether"
             elif item_type == 32:
-                itemname = "turbo ether"
+                itemname = "Turbo Ether"
             else:
-                itemname = "unknown"
+                itemname = "Unknown Item"
             tbl.append([round, "<round drop>", itemname])
         for enemy in round_data["enemy"]:
             had_drop = False
@@ -58,9 +58,9 @@ def handle_get_battle_init_data(data):
                     item = ITEMS.get(drop["item_id"], type_name + drop["item_id"])
                     itemname = "{0}* {1}".format(drop.get("rarity", 1), item)
                 elif item_type == 61:
-                    itemname = "event item"
+                    itemname = "Event Item"
                 else:
-                    itemname = "unknown"
+                    itemname = "Unknown Item"
                 had_drop = True
                 tbl.append([round, enemyname, itemname])
             if not had_drop:
