@@ -28,7 +28,7 @@ def handle_get_battle_init_data(data):
     battle_name = BATTLES.get(battle_id, "battle #" + battle_id)
     print "Entering {0}".format(battle_name)
     all_rounds_data = battle_data['rounds']
-    tbl = [["rnd", "enemy", "drop"]]
+    tbl = [["Rnd", "Enemy", "Drop"]]
     for round_data in all_rounds_data:
         round = round_data.get("round", "???")
         for round_drop in round_data["drop_item_list"]:
